@@ -15,20 +15,19 @@
 <style>
 .background-page {
     background-image: url("{% static 'images/Yetenbi_1.png' %}");
-    background-size: contain;        /* fills screen */
-    background-position: center;     /* centers image */
-    background-repeat: no-repeat;    /* no repeating */
-    min-height: 98vh;
+    /* 'cover' expands the image to leave zero blank spaces regardless of window size */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 </style>
 
 
+<!-- 1. Make the body a full-height column flexbox container -->
+<body class="d-flex flex-column min-vh-100 overflow-hidden">
 
-
-<body class="background-page overflow-hidden">
-    <!--header-->
-    <nav id="header" class="navbar navbar-dark bg-dark shadow-sm py-3">
-        <!-- container-fluid allows items to sit side-by-side or wrap naturally -->
+    <!-- Header (Navbar sits naturally at the top) -->
+    <nav id="header" class="navbar navbar-dark bg-dark shadow-sm py-1">
         <div class="container-fluid d-flex flex-wrap justify-content-between align-items-center gap-3">
 
             <!-- Branding Section (Left Side) -->
@@ -37,24 +36,20 @@
                 <span class="text-white-50" style="font-size: 14px;">Äthiopisches Restaurant</span>
             </div>
 
-            <!-- Buttons Section (Right Side / Wraps below on small screens) -->
-            <!-- px-4 adds side padding so buttons aren't small; style sets a standard matching width -->
+            <!-- Buttons Section (Right Side) -->
             <div class="d-flex flex-wrap gap-4">
                 <button class="btn bg-dark-subtle px-8 py-2 fs-2 text-black text-center" style="min-width: 240px;">
                     Speisekarte<br>
                     <span style="font-size: 10px; display: block; opacity: 0.85;">የምግብ ዝርዝር</span>
                 </button>
-
                 <button class="btn bg-dark-subtle px-8 py-2 fs-2 text-black text-center" style="min-width: 240px;">
                     Fotos<br>
                     <span style="font-size: 10px; display: block; opacity: 0.85;">ፎቶዎች</span>
                 </button>
-
                 <button class="btn bg-dark-subtle px-8 py-2 fs-2 text-black text-center" style="min-width: 240px;">
                     Geschichte<br>
                     <span style="font-size: 10px; display: block; opacity: 0.85;">ታሪክ</span>
                 </button>
-
                 <button class="btn bg-dark-subtle px-8 py-2 fs-2 text-black text-center" style="min-width: 240px;">
                     Kontakt<br>
                     <span style="font-size: 10px; display: block; opacity: 0.85;">አድራሻ</span>
@@ -63,6 +58,12 @@
 
         </div>
     </nav>
+
+    <!-- 2. New background div that automatically fills ALL remaining vertical space -->
+    <div class="background-page flex-grow-1">
+        <!-- Any page content or text you want over the image goes right here -->
+    </div>
+
 </body>
 </html>
 
